@@ -73,4 +73,8 @@ class AuthViewModel(app: Application) : AndroidViewModel(app) {
     fun onStateHandled() {
         _state.value = AuthState.Idle
     }
+    // Evita que un error de una pantalla aparezca "pegado" en la otra
+    fun clearErrors() {
+        _formErrors.value = FormErrors()
+    }
 }
