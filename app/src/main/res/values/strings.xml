@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">proyecto-desarrollo</string>
+    <string name="app_name">Tareas</string>
 
     // errores en crear cuenta
     <string name="error_name_required">Ingresa tu nombre</string>
