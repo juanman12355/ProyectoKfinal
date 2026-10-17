@@ -4,8 +4,8 @@ Aplicación Android nativa (Kotlin) para gestionar tareas personales. Cada usuar
 
 Proyecto final de la asignatura de Desarrollo Web y Móvil.
 
-- **Autor:** `<Tu nombre completo>`
-- **Asignatura / institución:** `<Nombre de la asignatura> – <Institución>`
+- **Autor:** `Juan Manuel Pedraza Sanchez`
+- **Asignatura / institución:** `Desarrollo web y movil – Universidad EAN`
 
 ---
 
@@ -14,7 +14,7 @@ Proyecto final de la asignatura de Desarrollo Web y Móvil.
 **1. Clonar el repositorio**
 
 ```bash
-git clone <URL-DEL-REPOSITORIO>
+git clone https://github.com/juanman12355/ProyectoKfinal.git
 ```
 
 **2. Abrirlo en Android Studio y sincronizar**
