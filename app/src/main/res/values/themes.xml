@@ -1,8 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Proyectodesarrollo" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Proyectodesarrollo" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/brown_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/note_yellow</item>
+        <item name="colorOnPrimaryContainer">@color/ink</item>
+        <item name="colorSecondary">@color/amber</item>
+        <item name="colorOnSecondary">@color/ink</item>
+        <item name="android:colorBackground">@color/paper</item>
+        <item name="android:windowBackground">@color/paper</item>
+        <item name="colorOnBackground">@color/ink</item>
+        <item name="colorSurface">@color/paper_card</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorOnSurfaceVariant">@color/ink_soft</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorError">@color/error</item>
     </style>
 
     <style name="Theme.Proyectodesarrollo" parent="Base.Theme.Proyectodesarrollo" />

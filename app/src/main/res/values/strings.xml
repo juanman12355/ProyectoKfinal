@@ -8,4 +8,20 @@
     <string name="error_invalid_credentials">Correo o contraseña incorrectos</string>
     <string name="error_email_taken">Este correo ya está registrado</string>
     <string name="error_unexpected">Ocurrió un error inesperado. Intenta de nuevo</string>
+
+    <string name="login_title">Bienvenido</string>
+    <string name="login_subtitle">Inicia sesión para ver tus tareas</string>
+    <string name="register_title">Crear cuenta</string>
+    <string name="register_subtitle">Regístrate para guardar tus tareas</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_confirm">Confirmar contraseña</string>
+    <string name="btn_login">Iniciar sesión</string>
+    <string name="btn_register">Crear cuenta</string>
+    <string name="go_register">¿No tienes cuenta? Regístrate</string>
+    <string name="go_login">¿Ya tienes cuenta? Inicia sesión</string>
+    <string name="register_success">Cuenta creada. Ahora inicia sesión</string>
+    <string name="task_list_placeholder">Aquí irá tu lista de tareas</string>
+    <string name="btn_logout">Cerrar sesión</string>
 </resources>

@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="paper">#FFF9E1</color>
+    <color name="paper_card">#FFFDF2</color>
+    <color name="note_yellow">#FFE680</color>
+    <color name="brown_primary">#6D4C41</color>
+    <color name="amber">#FFB300</color>
+    <color name="ink">#3E2F1C</color>
+    <color name="ink_soft">#6B5A45</color>
+    <color name="outline">#8C7A5B</color>
+    <color name="error">#B3261E</color>
 </resources>
