@@ -1,3 +1,7 @@
+/**
+ * Lógica de login y registro. Valida los campos, consulta al [UserRepository], guarda la
+ * sesión y publica el estado (carga, éxito, error) para que los Fragments solo lo dibujen.
+ */
 package com.example.proyecto_desarrollo.ui.auth
 
 import android.app.Application

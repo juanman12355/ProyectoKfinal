@@ -1,3 +1,9 @@
+/**
+ * Estado de la lista de tareas del usuario con sesión activa. Observa la base de datos
+ * con un Flow, por lo que la lista se actualiza sola al crear, editar o eliminar.
+ * Está ligado al Fragment (no a la Activity) para no conservar datos de otro usuario
+ * tras cerrar sesión.
+ */
 package com.example.proyecto_desarrollo.ui.list
 
 import android.app.Application

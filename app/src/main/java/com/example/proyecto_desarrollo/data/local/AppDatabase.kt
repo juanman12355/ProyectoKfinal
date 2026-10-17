@@ -1,3 +1,8 @@
+/**
+ * Base de datos Room de la app (versión 1).
+ * Contiene las tablas `users` y `tasks`. Se expone como singleton para que toda la app
+ * comparta una única instancia, ya que abrir varias es costoso y puede causar inconsistencias.
+ */
 package com.example.proyecto_desarrollo.data.local
 
 import android.content.Context

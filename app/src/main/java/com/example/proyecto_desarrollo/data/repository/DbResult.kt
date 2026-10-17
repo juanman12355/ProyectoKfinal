@@ -1,3 +1,4 @@
+/** Resultado de una operación de base de datos: éxito con un valor, o fallo con su causa. */
 package com.example.proyecto_desarrollo.data.repository
 
 import kotlinx.coroutines.CancellationException

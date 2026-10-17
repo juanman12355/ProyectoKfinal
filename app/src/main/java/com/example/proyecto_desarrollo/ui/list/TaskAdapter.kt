@@ -1,3 +1,7 @@
+/**
+ * Adaptador del RecyclerView. Usa DiffUtil para actualizar solo los ítems que cambiaron,
+ * y delega los clics (abrir, marcar, eliminar) al Fragment mediante lambdas.
+ */
 package com.example.proyecto_desarrollo.ui.list
 
 import android.graphics.Paint

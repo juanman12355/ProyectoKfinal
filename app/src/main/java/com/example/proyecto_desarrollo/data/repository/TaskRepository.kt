@@ -1,3 +1,8 @@
+/**
+ * Única puerta de acceso a las tareas. Los ViewModels no conocen Room: si cambiara la
+ * fuente de datos (p. ej. una API remota), solo habría que modificar esta clase.
+ * Las escrituras devuelven [DbResult] para que los fallos nunca tumben la app.
+ */
 package com.example.proyecto_desarrollo.data.repository
 
 import com.example.proyecto_desarrollo.data.local.TaskDao

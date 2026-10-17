@@ -7,6 +7,7 @@ class SessionManager(context: Context) {
     private val prefs = context.applicationContext
         .getSharedPreferences("session", Context.MODE_PRIVATE)
 
+    // Solo se guarda el id del usuario (nunca la contraseña), por lo que SharedPreferences privado es suficiente.
     fun saveUser(userId: Long) = prefs.edit { putLong(KEY_USER_ID, userId) }
 
     fun getUserId(): Long = prefs.getLong(KEY_USER_ID, NO_USER)

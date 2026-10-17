@@ -2,6 +2,11 @@ package com.example.proyecto_desarrollo.data.repository
 
 import android.database.sqlite.SQLiteConstraintException
 import com.example.proyecto_desarrollo.data.local.UserDao
+/**
+ * Reglas de acceso a datos de usuarios: registro e inicio de sesión.
+ * Normaliza el correo (trim + minúsculas), guarda la contraseña como hash con salt
+ * y traduce los errores técnicos de Room a un [AuthResult] que la interfaz entiende.
+ */
 import com.example.proyecto_desarrollo.data.model.User
 import com.example.proyecto_desarrollo.util.HashUtil
 import kotlinx.coroutines.CancellationException
