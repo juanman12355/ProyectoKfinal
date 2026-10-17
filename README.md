@@ -170,4 +170,4 @@ erDiagram
 
 - **El sync de Gradle falla por una plataforma faltante:** abre **Tools → SDK Manager** e instala *Android SDK Platform 37*.
 - **Rojo en `ItemTaskBinding`, `FragmentLoginBinding`, etc. aunque compila:** son clases generadas por ViewBinding. Ejecuta **Build → Make Project** y, si persiste, **File → Invalidate Caches → Invalidate and Restart**.
-- **Quiero empezar de cero:** desinstala la app del emulador o usa **Settings → Apps → Tareas → Storage → Clear data**.
+- **Quiero empezar de cero:** desinstala la app del emulador o usa **Settings → Apps → proyecto-desarrollo → Storage → Clear data**.
