@@ -77,4 +77,40 @@ class AuthViewModel(app: Application) : AndroidViewModel(app) {
     fun clearErrors() {
         _formErrors.value = FormErrors()
     }
+
+    // Revalidación mientras el usuario escribe, solo si el campo ya tenía un error visible
+
+    fun onNameChanged(name: String) {
+        val current = _formErrors.value ?: return
+        if (current.name != null) {
+            _formErrors.value = current.copy(name = Validators.nameError(name))
+        }
+    }
+
+    fun onEmailChanged(email: String) {
+        val current = _formErrors.value ?: return
+        if (current.email != null) {
+            _formErrors.value = current.copy(email = Validators.emailError(email))
+        }
+    }
+
+    // `confirm` solo se envía desde el registro; en el login queda en null
+    fun onPasswordChanged(password: String, confirm: String? = null) {
+        val current = _formErrors.value ?: return
+        var updated = current
+        if (current.password != null) {
+            updated = updated.copy(password = Validators.passwordError(password))
+        }
+        if (confirm != null && current.confirm != null) {
+            updated = updated.copy(confirm = Validators.confirmError(password, confirm))
+        }
+        if (updated != current) _formErrors.value = updated
+    }
+
+    fun onConfirmChanged(password: String, confirm: String) {
+        val current = _formErrors.value ?: return
+        if (current.confirm != null) {
+            _formErrors.value = current.copy(confirm = Validators.confirmError(password, confirm))
+        }
+    }
 }

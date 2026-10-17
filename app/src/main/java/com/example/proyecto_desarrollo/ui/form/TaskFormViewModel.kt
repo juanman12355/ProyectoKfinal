@@ -74,4 +74,19 @@ class TaskFormViewModel(app: Application) : AndroidViewModel(app) {
             _saved.value = true
         }
     }
+    // Revalida el título solo si ya tenía un error visible
+    fun onTitleChanged(title: String) {
+        val current = _errors.value ?: return
+        if (current.title != null) {
+            _errors.value = current.copy(title = Validators.taskTitleError(title))
+        }
+    }
+
+    // Igual para la descripción
+    fun onDescriptionChanged(description: String) {
+        val current = _errors.value ?: return
+        if (current.description != null) {
+            _errors.value = current.copy(description = Validators.taskDescriptionError(description))
+        }
+    }
 }

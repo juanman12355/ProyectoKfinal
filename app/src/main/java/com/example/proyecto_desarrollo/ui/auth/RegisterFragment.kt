@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.proyecto_desarrollo.databinding.FragmentRegisterBinding
 import com.google.android.material.snackbar.Snackbar
+import androidx.core.widget.doOnTextChanged
 
 class RegisterFragment : Fragment() {
 
@@ -28,6 +29,26 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.clearErrors()
+
+        binding.etName.doOnTextChanged { text, _, _, _ ->
+            viewModel.onNameChanged(text?.toString().orEmpty())
+        }
+        binding.etEmail.doOnTextChanged { text, _, _, _ ->
+            viewModel.onEmailChanged(text?.toString().orEmpty())
+        }
+        binding.etPassword.doOnTextChanged { text, _, _, _ ->
+            // También revalida la confirmación, porque su error depende de este campo
+            viewModel.onPasswordChanged(
+                text?.toString().orEmpty(),
+                binding.etConfirm.text.toString()
+            )
+        }
+        binding.etConfirm.doOnTextChanged { text, _, _, _ ->
+            viewModel.onConfirmChanged(
+                binding.etPassword.text.toString(),
+                text?.toString().orEmpty()
+            )
+        }
 
         binding.btnRegister.setOnClickListener {
             viewModel.register(

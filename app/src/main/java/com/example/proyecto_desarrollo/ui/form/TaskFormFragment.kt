@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.proyecto_desarrollo.R
 import com.example.proyecto_desarrollo.databinding.FragmentTaskFormBinding
+import androidx.core.widget.doOnTextChanged
 
 class TaskFormFragment : Fragment() {
 
@@ -42,6 +43,13 @@ class TaskFormFragment : Fragment() {
                     binding.etDescription.setText(task.description)
                 }
             }
+        }
+
+        binding.etTitle.doOnTextChanged { text, _, _, _ ->
+            viewModel.onTitleChanged(text?.toString().orEmpty())
+        }
+        binding.etDescription.doOnTextChanged { text, _, _, _ ->
+            viewModel.onDescriptionChanged(text?.toString().orEmpty())
         }
 
         binding.btnSave.setOnClickListener {

@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.proyecto_desarrollo.R
 import com.example.proyecto_desarrollo.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
+import androidx.core.widget.doOnTextChanged
 
 class LoginFragment : Fragment() {
 
@@ -35,6 +36,13 @@ class LoginFragment : Fragment() {
         }
 
         viewModel.clearErrors()
+
+        binding.etEmail.doOnTextChanged { text, _, _, _ ->
+            viewModel.onEmailChanged(text?.toString().orEmpty())
+        }
+        binding.etPassword.doOnTextChanged { text, _, _, _ ->
+            viewModel.onPasswordChanged(text?.toString().orEmpty())
+        }
 
         binding.btnLogin.setOnClickListener {
             viewModel.login(
