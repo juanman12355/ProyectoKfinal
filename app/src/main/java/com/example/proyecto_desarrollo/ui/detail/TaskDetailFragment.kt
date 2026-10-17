@@ -25,6 +25,9 @@ class TaskDetailFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: TaskDetailViewModel by viewModels()
 
+    // true desde que el usuario confirma "Eliminar" hasta que la tarea desaparece
+    private var deleting = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -48,10 +51,21 @@ class TaskDetailFragment : Fragment() {
 
         viewModel.task.observe(viewLifecycleOwner) { task ->
             if (task == null) {
-                // La tarea ya no existe (p. ej. se acaba de eliminar): volvemos a la lista
+                // La tarea ya no existe: si la eliminamos nosotros, avisamos a la lista
+                if (deleting) {
+                    setFragmentResult(TaskFormFragment.RESULT_TASK_DELETED, Bundle())
+                }
                 findNavController().navigateUp()
             } else {
                 bind(task)
+            }
+        }
+
+        viewModel.error.observe(viewLifecycleOwner) { messageRes ->
+            if (messageRes != null) {
+                deleting = false
+                Snackbar.make(binding.root, messageRes, Snackbar.LENGTH_LONG).show()
+                viewModel.onErrorHandled()
             }
         }
 
@@ -99,8 +113,7 @@ class TaskDetailFragment : Fragment() {
             .setMessage(getString(R.string.delete_message, task.title))
             .setNegativeButton(R.string.cancel, null)
             .setPositiveButton(R.string.delete_confirm) { _, _ ->
-                // La lista mostrará "Tarea eliminada" cuando volvamos a ella
-                setFragmentResult(TaskFormFragment.RESULT_TASK_DELETED, Bundle())
+                deleting = true
                 viewModel.delete(task)
             }
             .show()

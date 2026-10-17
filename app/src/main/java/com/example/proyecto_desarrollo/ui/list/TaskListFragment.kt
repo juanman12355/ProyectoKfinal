@@ -77,6 +77,13 @@ class TaskListFragment : Fragment() {
             binding.emptyState.isVisible = tasks.isEmpty()
             binding.recyclerTasks.isVisible = tasks.isNotEmpty()
         }
+
+        viewModel.error.observe(viewLifecycleOwner) { messageRes ->
+            if (messageRes != null) {
+                Snackbar.make(binding.root, messageRes, Snackbar.LENGTH_LONG).show()
+                viewModel.onErrorHandled()
+            }
+        }
     }
 
     private fun confirmDelete(task: Task) {

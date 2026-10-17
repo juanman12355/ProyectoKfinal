@@ -65,4 +65,12 @@
     <string name="share_title">Compartir tarea</string>
     <string name="task_created">Tarea creada</string>
     <string name="task_updated">Tarea actualizada</string>
+
+    // Manejo de errores
+    <string name="error_load_tasks">No se pudieron cargar las tareas</string>
+    <string name="error_load_task">No se pudo cargar la tarea</string>
+    <string name="error_save_task">No se pudo guardar la tarea. Intenta de nuevo</string>
+    <string name="error_update_task">No se pudo actualizar la tarea. Intenta de nuevo</string>
+    <string name="error_delete_task">No se pudo eliminar la tarea. Intenta de nuevo</string>
+    <string name="error_task_not_found">La tarea ya no existe</string>
 </resources>

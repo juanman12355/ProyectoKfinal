@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.proyecto_desarrollo.R
 import com.example.proyecto_desarrollo.databinding.FragmentTaskFormBinding
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.snackbar.Snackbar
 
 class TaskFormFragment : Fragment() {
 
@@ -69,6 +70,13 @@ class TaskFormFragment : Fragment() {
                 // Avisa a la pantalla anterior para que muestre el mensaje de éxito
                 setFragmentResult(RESULT_TASK_SAVED, Bundle())
                 findNavController().navigateUp()
+            }
+        }
+
+        viewModel.error.observe(viewLifecycleOwner) { messageRes ->
+            if (messageRes != null) {
+                Snackbar.make(binding.root, messageRes, Snackbar.LENGTH_LONG).show()
+                viewModel.onErrorHandled()
             }
         }
     }

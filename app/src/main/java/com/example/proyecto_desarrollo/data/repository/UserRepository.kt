@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteConstraintException
 import com.example.proyecto_desarrollo.data.local.UserDao
 import com.example.proyecto_desarrollo.data.model.User
 import com.example.proyecto_desarrollo.util.HashUtil
+import kotlinx.coroutines.CancellationException
 
 class UserRepository(private val userDao: UserDao) {
 
@@ -20,6 +21,8 @@ class UserRepository(private val userDao: UserDao) {
             AuthResult.Success(user.copy(id = newId))
         } catch (e: SQLiteConstraintException) {
             AuthResult.EmailTaken          // viola el índice único del email
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             AuthResult.Failure
         }
@@ -32,6 +35,8 @@ class UserRepository(private val userDao: UserDao) {
             val hash = HashUtil.hash(password, user.salt)
             if (hash == user.passwordHash) AuthResult.Success(user)
             else AuthResult.InvalidCredentials
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             AuthResult.Failure
         }
