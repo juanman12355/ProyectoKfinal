@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">proyecto-desarrollo</string>
+
+    // errores en crear cuenta
     <string name="error_name_required">Ingresa tu nombre</string>
     <string name="error_email_required">Ingresa tu correo</string>
     <string name="error_email_invalid">El correo no tiene un formato válido</string>
@@ -9,6 +11,7 @@
     <string name="error_email_taken">Este correo ya está registrado</string>
     <string name="error_unexpected">Ocurrió un error inesperado. Intenta de nuevo</string>
 
+    // login y crear cuenta
     <string name="login_title">Bienvenido</string>
     <string name="login_subtitle">Inicia sesión para ver tus tareas</string>
     <string name="register_title">Crear cuenta</string>
@@ -24,4 +27,18 @@
     <string name="register_success">Cuenta creada. Ahora inicia sesión</string>
     <string name="task_list_placeholder">Aquí irá tu lista de tareas</string>
     <string name="btn_logout">Cerrar sesión</string>
+
+    // lista de notas (ya logueado)
+    <string name="list_title">Mis tareas</string>
+    <string name="empty_title">Aún no tienes tareas</string>
+    <string name="empty_hint">Toca el botón + para crear la primera</string>
+    <string name="cd_add_task">Agregar tarea</string>
+    <string name="cd_delete_task">Eliminar tarea</string>
+    <string name="cd_done">Marcar como hecha</string>
+    <string name="delete_title">Eliminar tarea</string>
+    <string name="delete_message">¿Seguro que quieres eliminar “%1$s”?</string>
+    <string name="delete_confirm">Eliminar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="task_deleted">Tarea eliminada</string>
+    <string name="undo">Deshacer</string>
 </resources>
