@@ -41,4 +41,28 @@
     <string name="cancel">Cancelar</string>
     <string name="task_deleted">Tarea eliminada</string>
     <string name="undo">Deshacer</string>
+
+    // CRUD notas
+    <string name="form_new_title">Nueva tarea</string>
+    <string name="form_edit_title">Editar tarea</string>
+    <string name="hint_task_title">Título</string>
+    <string name="hint_task_description">Descripción (opcional)</string>
+    <string name="btn_save">Guardar</string>
+    <string name="cd_back">Volver</string>
+    <string name="error_title_required">Ingresa un título</string>
+    <string name="error_title_too_long">El título no puede superar los 60 caracteres</string>
+    <string name="error_description_too_long">La descripción no puede superar los 300 caracteres</string>
+    <string name="detail_title">Detalle de la tarea</string>
+    <string name="status_done">Estado: hecha</string>
+    <string name="status_pending">Estado: pendiente</string>
+    <string name="btn_mark_done">Marcar como hecha</string>
+    <string name="btn_mark_pending">Marcar como pendiente</string>
+    <string name="btn_edit">Editar</string>
+    <string name="btn_share">Compartir</string>
+    <string name="btn_delete">Eliminar</string>
+    <string name="no_description">Sin descripción</string>
+    <string name="created_on">Creada el %1$s</string>
+    <string name="share_title">Compartir tarea</string>
+    <string name="task_created">Tarea creada</string>
+    <string name="task_updated">Tarea actualizada</string>
 </resources>

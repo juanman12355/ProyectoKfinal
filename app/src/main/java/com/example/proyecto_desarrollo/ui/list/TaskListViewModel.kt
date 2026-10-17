@@ -33,13 +33,5 @@ class TaskListViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch { repository.add(task) }
     }
 
-    // TEMPORAL: se elimina cuando exista el formulario de crear/editar
-    fun addSampleTask() {
-        viewModelScope.launch {
-            val next = (tasks.value?.size ?: 0) + 1
-            repository.add(
-                Task(userId = userId, title = "Tarea de prueba $next", description = "Descripción de ejemplo")
-            )
-        }
-    }
+
 }

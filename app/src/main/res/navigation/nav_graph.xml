@@ -33,5 +33,25 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_taskList_to_form"
+            app:destination="@id/taskFormFragment" />
+        <action
+            android:id="@+id/action_taskList_to_detail"
+            app:destination="@id/taskDetailFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="com.example.proyecto_desarrollo.ui.detail.TaskDetailFragment"
+        tools:layout="@layout/fragment_task_detail">
+        <action
+            android:id="@+id/action_detail_to_form"
+            app:destination="@id/taskFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskFormFragment"
+        android:name="com.example.proyecto_desarrollo.ui.form.TaskFormFragment"
+        tools:layout="@layout/fragment_task_form" />
 </navigation>

@@ -26,4 +26,19 @@ object Validators {
     @StringRes
     fun confirmError(password: String, confirm: String): Int? =
         if (password != confirm) R.string.error_password_mismatch else null
+
+    private const val MAX_TITLE_LENGTH = 60
+    private const val MAX_DESCRIPTION_LENGTH = 300
+
+    @StringRes
+    fun taskTitleError(title: String): Int? = when {
+        title.isBlank() -> R.string.error_title_required
+        title.trim().length > MAX_TITLE_LENGTH -> R.string.error_title_too_long
+        else -> null
+    }
+
+    @StringRes
+    fun taskDescriptionError(description: String): Int? =
+        if (description.trim().length > MAX_DESCRIPTION_LENGTH) R.string.error_description_too_long else null
+
 }

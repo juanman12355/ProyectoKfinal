@@ -4,15 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.proyecto_desarrollo.R
 import com.example.proyecto_desarrollo.data.model.Task
 import com.example.proyecto_desarrollo.databinding.FragmentTaskListBinding
 import com.example.proyecto_desarrollo.ui.auth.AuthViewModel
+import com.example.proyecto_desarrollo.ui.form.TaskFormFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
@@ -35,7 +38,12 @@ class TaskListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = TaskAdapter(
-            onItemClick = { /* el detalle se conecta en el siguiente paso */ },
+            onItemClick = { task ->
+                findNavController().navigate(
+                    R.id.action_taskList_to_detail,
+                    bundleOf(TaskFormFragment.ARG_TASK_ID to task.id)
+                )
+            },
             onToggleDone = viewModel::toggleDone,
             onDeleteClick = ::confirmDelete
         )
@@ -53,8 +61,17 @@ class TaskListFragment : Fragment() {
             }
         }
 
-        // TEMPORAL: en el siguiente paso navegará al formulario de crear
-        binding.fabAdd.setOnClickListener { viewModel.addSampleTask() }
+        binding.fabAdd.setOnClickListener {
+            findNavController().navigate(R.id.action_taskList_to_form)
+        }
+
+        // Mensajes de éxito que llegan desde el formulario y el detalle
+        setFragmentResultListener(TaskFormFragment.RESULT_TASK_SAVED) { _, _ ->
+            Snackbar.make(binding.root, R.string.task_created, Snackbar.LENGTH_SHORT).show()
+        }
+        setFragmentResultListener(TaskFormFragment.RESULT_TASK_DELETED) { _, _ ->
+            Snackbar.make(binding.root, R.string.task_deleted, Snackbar.LENGTH_SHORT).show()
+        }
 
         viewModel.tasks.observe(viewLifecycleOwner) { tasks ->
             adapter.submitList(tasks)
