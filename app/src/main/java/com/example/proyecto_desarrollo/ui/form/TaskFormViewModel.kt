@@ -53,6 +53,7 @@ class TaskFormViewModel(app: Application) : AndroidViewModel(app) {
                     editingTask = result.value
                     _loadedTask.value = result.value
                 }
+
                 is DbResult.Failure -> _error.value = R.string.error_load_task
             }
         }

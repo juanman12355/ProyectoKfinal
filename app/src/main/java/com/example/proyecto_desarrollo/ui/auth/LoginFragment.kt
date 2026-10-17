@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.proyecto_desarrollo.R
 import com.example.proyecto_desarrollo.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
-import androidx.core.widget.doOnTextChanged
 
 class LoginFragment : Fragment() {
 
@@ -69,14 +69,18 @@ class LoginFragment : Fragment() {
                     viewModel.onStateHandled()
                     goToTasks()
                 }
+
                 is AuthState.Registered -> {
-                    Snackbar.make(binding.root, R.string.register_success, Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(binding.root, R.string.register_success, Snackbar.LENGTH_LONG)
+                        .show()
                     viewModel.onStateHandled()
                 }
+
                 is AuthState.Error -> {
                     Snackbar.make(binding.root, state.messageRes, Snackbar.LENGTH_LONG).show()
                     viewModel.onStateHandled()
                 }
+
                 else -> Unit
             }
         }

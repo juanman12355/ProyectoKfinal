@@ -41,6 +41,7 @@ class AuthViewModel(app: Application) : AndroidViewModel(app) {
                     session.saveUser(result.user.id)
                     AuthState.LoggedIn
                 }
+
                 AuthResult.InvalidCredentials -> AuthState.Error(R.string.error_invalid_credentials)
                 else -> AuthState.Error(R.string.error_unexpected)
             }
@@ -73,6 +74,7 @@ class AuthViewModel(app: Application) : AndroidViewModel(app) {
     fun onStateHandled() {
         _state.value = AuthState.Idle
     }
+
     // Evita que un error de una pantalla aparezca "pegado" en la otra
     fun clearErrors() {
         _formErrors.value = FormErrors()

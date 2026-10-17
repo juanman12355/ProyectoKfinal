@@ -1,6 +1,7 @@
 package com.example.proyecto_desarrollo.data.repository
 
 import kotlinx.coroutines.CancellationException
+import android.util.Log
 
 // Resultado de una operación de base de datos: o salió bien, o falló con un motivo
 sealed class DbResult<out T> {
@@ -15,5 +16,6 @@ suspend fun <T> dbCall(block: suspend () -> T): DbResult<T> =
     } catch (e: CancellationException) {
         throw e                      // una cancelación NO es un error: debe seguir su curso
     } catch (e: Exception) {
+        Log.e("DbResult", "Falló una operación de base de datos", e)
         DbResult.Failure(e)
     }

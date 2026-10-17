@@ -56,6 +56,7 @@ class TaskListFragment : Fragment() {
                     findNavController().navigate(R.id.action_taskList_to_login)
                     true
                 }
+
                 else -> false
             }
         }

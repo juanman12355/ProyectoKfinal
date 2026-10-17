@@ -25,7 +25,6 @@
     <string name="go_register">¿No tienes cuenta? Regístrate</string>
     <string name="go_login">¿Ya tienes cuenta? Inicia sesión</string>
     <string name="register_success">Cuenta creada. Ahora inicia sesión</string>
-    <string name="task_list_placeholder">Aquí irá tu lista de tareas</string>
     <string name="btn_logout">Cerrar sesión</string>
 
     // lista de notas (ya logueado)
