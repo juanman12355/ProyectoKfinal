@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
@@ -60,11 +59,11 @@ class TaskDetailFragment : Fragment() {
             viewModel.task.value?.let { viewModel.toggleDone(it) }
         }
         binding.btnEdit.setOnClickListener {
-            viewModel.task.value?.let {
-                findNavController().navigate(
-                    R.id.action_detail_to_form,
-                    bundleOf(TaskFormFragment.ARG_TASK_ID to it.id)
-                )
+            viewModel.task.value?.let { task ->
+                val args = Bundle().apply {
+                    putLong(TaskFormFragment.ARG_TASK_ID, task.id)
+                }
+                findNavController().navigate(R.id.action_detail_to_form, args)
             }
         }
         binding.btnShare.setOnClickListener { viewModel.task.value?.let(::share) }

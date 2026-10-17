@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -39,10 +38,10 @@ class TaskListFragment : Fragment() {
 
         val adapter = TaskAdapter(
             onItemClick = { task ->
-                findNavController().navigate(
-                    R.id.action_taskList_to_detail,
-                    bundleOf(TaskFormFragment.ARG_TASK_ID to task.id)
-                )
+                val args = Bundle().apply {
+                    putLong(TaskFormFragment.ARG_TASK_ID, task.id)
+                }
+                findNavController().navigate(R.id.action_taskList_to_detail, args)
             },
             onToggleDone = viewModel::toggleDone,
             onDeleteClick = ::confirmDelete
